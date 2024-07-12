@@ -10,8 +10,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let backgroundColor: Color
     private let itemViewBuilder: (ItemType) -> Content
 
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
-                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
+    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
@@ -19,8 +18,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         itemToSelectedValue = { $0 }
     }
 
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
-                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
+    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
