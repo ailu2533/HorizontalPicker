@@ -4,39 +4,29 @@
 import SwiftUI
 
 public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, SelectedValue: Hashable>: View {
-    var items: [ItemType]
+    private let items: [ItemType]
     @Binding private var selectedItem: SelectedValue
+    private let itemToSelectedValue: (ItemType) -> SelectedValue
+    private let backgroundColor: Color
+    private let itemViewBuilder: (ItemType) -> Content
+    private let feedback: SensoryFeedback?
 
-    // 添加一个转换函数，将 ItemType 转换为 SelectedValue
-    var itemToSelectedValue: (ItemType) -> SelectedValue
-
-    var backgroundColor: Color
-
-    @ViewBuilder var itemViewBuilder: (ItemType) -> Content
-
-    private var shouldEmbedInScrollView = true
-
-    var feedback: SensoryFeedback?
-
-    // 初始化方法，当 SelectedValue 和 ItemType 相同时
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = Color(.clear), shouldEmbedInScrollView: Bool = true, feedback: SensoryFeedback? = nil,
-                itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
+    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
+                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
-        _selectedItem = selectedItem
+        self._selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.shouldEmbedInScrollView = shouldEmbedInScrollView
         self.feedback = feedback
-        itemToSelectedValue = { $0 }
+        self.itemToSelectedValue = { $0 }
     }
 
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = Color(.clear), shouldEmbedInScrollView: Bool = true, feedback: SensoryFeedback? = nil,
-                itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
+    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
+                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
         self.items = items
-        _selectedItem = selectedItem
+        self._selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.shouldEmbedInScrollView = shouldEmbedInScrollView
         self.feedback = feedback
         self.itemToSelectedValue = itemToSelectedValue
     }
@@ -47,24 +37,26 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         }
         .scrollIndicators(.hidden)
         .contentMargins(.horizontal, 16)
+        .background(backgroundColor)
     }
 
     private func itemsStackView() -> some View {
         HStack {
-            ForEach(items, id: \.self) { dataItem in
-                Button(action: {
-                    // 使用转换函数来更新 selectedItem
-                    selectedItem = itemToSelectedValue(dataItem)
-                }, label: {
-                    itemViewBuilder(dataItem)
-                        .frame(minWidth: 30)
-                        .contentShape(Rectangle())
-                })
-                .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == itemToSelectedValue(dataItem)))
-                .modifier(FeedbackViewModifier(feedback: feedback, trigger: selectedItem))
-                .animation(.default, value: selectedItem)
+            ForEach(items, id: \.self) { item in
+                itemButton(for: item)
             }
         }
+    }
+
+    private func itemButton(for item: ItemType) -> some View {
+        Button(action: { selectedItem = itemToSelectedValue(item) }) {
+            itemViewBuilder(item)
+                .frame(minWidth: 30)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == itemToSelectedValue(item)))
+        .modifier(FeedbackViewModifier(feedback: feedback, trigger: selectedItem))
+        .animation(.default, value: selectedItem)
     }
 }
 
@@ -76,7 +68,7 @@ struct WeekdaySelectionView: View {
     @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 
     var body: some View {
-        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .gray.opacity(0.1)) { weekday in
+        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear) { weekday in
             Text(weekday)
         } itemToSelectedValue: { $0 }
     }
