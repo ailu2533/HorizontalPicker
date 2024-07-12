@@ -14,17 +14,17 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
                 @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
-        self._selectedItem = selectedItem
+        _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.feedback = feedback
-        self.itemToSelectedValue = { $0 }
+        itemToSelectedValue = { $0 }
     }
 
     public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
                 @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
         self.items = items
-        self._selectedItem = selectedItem
+        _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.feedback = feedback
@@ -37,7 +37,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         }
         .scrollIndicators(.hidden)
         .contentMargins(.horizontal, 16)
-        .background(backgroundColor)
     }
 
     private func itemsStackView() -> some View {

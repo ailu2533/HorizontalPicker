@@ -22,7 +22,7 @@ struct HorizontalPickerButtonStyle2: ButtonStyle {
             .background(isSelected ? Color.white : backgroundColor)
             .foregroundColor(isSelected ? .black : .gray)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(
+            .background(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(isSelected ? Color.orange : Color.clear, lineWidth: 2)
                     .shadow(color: isSelected ? Color.orange.opacity(0.5) : Color.clear, radius: 4, x: 0, y: 2)
