@@ -9,7 +9,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let itemToSelectedValue: (ItemType) -> SelectedValue
     private let backgroundColor: Color
     private let itemViewBuilder: (ItemType) -> Content
-    private let feedback: SensoryFeedback?
 
     public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, feedback: SensoryFeedback? = nil,
                 @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
@@ -17,7 +16,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.feedback = feedback
         itemToSelectedValue = { $0 }
     }
 
@@ -27,7 +25,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.feedback = feedback
         self.itemToSelectedValue = itemToSelectedValue
     }
 
@@ -54,7 +51,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
                 .contentShape(Rectangle())
         }
         .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == itemToSelectedValue(item)))
-        .modifier(FeedbackViewModifier(feedback: feedback, trigger: selectedItem))
         .animation(.default, value: selectedItem)
     }
 }
@@ -69,7 +65,7 @@ struct WeekdaySelectionView: View {
     var body: some View {
         HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear) { weekday in
             Text(weekday)
-        } itemToSelectedValue: { $0 }
+        }
     }
 }
 
