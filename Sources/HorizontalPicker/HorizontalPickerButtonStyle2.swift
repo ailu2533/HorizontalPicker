@@ -18,7 +18,7 @@ struct HorizontalPickerButtonStyle2: ButtonStyle {
         configuration.label
             .frame(width: 30)
             .padding(.horizontal, 8)
-            .padding(.vertical, 6)
+            .padding(.vertical, 4)
             .background(isSelected ? Color.white : backgroundColor)
             .foregroundColor(isSelected ? .black : .gray)
             .clipShape(RoundedRectangle(cornerRadius: 10))

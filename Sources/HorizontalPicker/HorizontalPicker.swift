@@ -9,6 +9,8 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let itemToSelectedValue: (ItemType) -> SelectedValue
     private let backgroundColor: Color
     private let itemViewBuilder: (ItemType) -> Content
+    @Namespace private var animation
+    private let pickerId = UUID()
 
     public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
@@ -27,29 +29,44 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     }
 
     public var body: some View {
-        ScrollView(.horizontal) {
-            itemsStackView()
+        ScrollViewReader { proxy in
+            ScrollView(.horizontal) {
+                itemsStackView(proxy: proxy)
+            }
+            .scrollIndicators(.hidden)
+            .contentMargins(.horizontal, 16)
         }
-        .scrollIndicators(.hidden)
-        .contentMargins(.horizontal, 16)
+        // .sensoryFeedback(.impact(weight: .light, intensity: 0.5), trigger: selectedItem)
     }
 
-    private func itemsStackView() -> some View {
+    private func itemsStackView(proxy: ScrollViewProxy) -> some View {
         HStack {
             ForEach(items, id: \.self) { item in
-                itemButton(for: item)
+                itemButton(for: item, proxy: proxy)
+                    .id(itemToSelectedValue(item))
+            }
+        }
+        .onChange(of: selectedItem) { _, newValue in
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                proxy.scrollTo(newValue, anchor: .center)
             }
         }
     }
 
-    private func itemButton(for item: ItemType) -> some View {
-        Button(action: { selectedItem = itemToSelectedValue(item) }) {
+    private func itemButton(for item: ItemType, proxy: ScrollViewProxy) -> some View {
+        Button(action: {
+            selectedItem = itemToSelectedValue(item)
+        }) {
             itemViewBuilder(item)
-                .frame(minWidth: 30)
                 .contentShape(Rectangle())
         }
-        .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == itemToSelectedValue(item)))
-        .animation(.default, value: selectedItem)
+        .buttonStyle(HorizontalPickerButtonStyle(
+            pickerId: pickerId,
+            isSelected: selectedItem == itemToSelectedValue(item),
+            backgroundColor: backgroundColor,
+            namespace: animation,
+            itemId: itemToSelectedValue(item)
+        ))
     }
 }
 
