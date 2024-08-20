@@ -23,7 +23,7 @@ public struct IconPickerView: View {
 
     public var body: some View {
         VStack {
-            HorizontalSelectionPicker(items: iconSets.keys.elements, selectedItem: $selectedIconSetName) {
+            HorizontalSelectionPicker(pickerId: UUID(), items: iconSets.keys.elements, selectedItem: $selectedIconSetName) {
                 Text($0)
             } itemToSelectedValue: { $0 }
                 .padding(.horizontal)

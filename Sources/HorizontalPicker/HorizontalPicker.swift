@@ -10,22 +10,24 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let backgroundColor: Color
     private let itemViewBuilder: (ItemType) -> Content
     @Namespace private var animation
-    private let pickerId = UUID()
+    private let pickerId: UUID
 
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
+    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         itemToSelectedValue = { $0 }
+        self.pickerId = pickerId
     }
 
-    public init(items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
+    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.itemToSelectedValue = itemToSelectedValue
+        self.pickerId = pickerId
     }
 
     public var body: some View {
@@ -78,7 +80,7 @@ struct WeekdaySelectionView: View {
     @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 
     var body: some View {
-        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear) { weekday in
+        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear) { weekday in
             Text(weekday)
         }
     }
