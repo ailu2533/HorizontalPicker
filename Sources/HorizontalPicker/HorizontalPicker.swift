@@ -88,7 +88,7 @@ struct WeekdaySelectionView: View {
     @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 
     var body: some View {
-        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear, verticalPadding: 8) { weekday in
+        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
             Text(weekday)
         }
     }

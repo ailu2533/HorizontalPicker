@@ -31,8 +31,8 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
         configuration.label
             .fontWeight(.semibold)
             .font(.headline)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
             .frame(minWidth: 40)
 
             .background(
@@ -43,8 +43,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                             .matchedGeometryEffect(id: pickerId, in: namespace)
                     } else {
                         Capsule()
-                            .fill(Color(.systemGray6))
-                            .shadow(radius: 1)
+                            .fill(backgroundColor)
                     }
                 }
             )
