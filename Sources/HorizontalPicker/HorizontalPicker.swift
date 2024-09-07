@@ -11,23 +11,30 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let itemViewBuilder: (ItemType) -> Content
     @Namespace private var animation
     private let pickerId: UUID
+    private let verticalPadding: CGFloat
 
-    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
+    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear,
+                verticalPadding: CGFloat = 0,
+                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         itemToSelectedValue = { $0 }
         self.pickerId = pickerId
+        self.verticalPadding = verticalPadding
     }
 
-    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear, @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
+    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear,
+                verticalPadding: CGFloat = 0,
+                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.itemToSelectedValue = itemToSelectedValue
         self.pickerId = pickerId
+        self.verticalPadding = verticalPadding
     }
 
     public var body: some View {
@@ -48,6 +55,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
                     .id(itemToSelectedValue(item))
             }
         }
+        .padding(.vertical, 8)
         .onChange(of: selectedItem) { _, newValue in
             withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                 proxy.scrollTo(newValue, anchor: .center)
@@ -80,7 +88,7 @@ struct WeekdaySelectionView: View {
     @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 
     var body: some View {
-        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear) { weekday in
+        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .clear, verticalPadding: 8) { weekday in
             Text(weekday)
         }
     }

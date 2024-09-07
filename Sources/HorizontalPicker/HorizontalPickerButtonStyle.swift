@@ -30,10 +30,11 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .fontWeight(.semibold)
-            .font(.subheadline)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 6)
-            .frame(minWidth: 30)
+            .font(.headline)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+            .frame(minWidth: 40)
+
             .background(
                 ZStack {
                     if isSelected {
@@ -43,10 +44,11 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                     } else {
                         Capsule()
                             .fill(Color(.systemGray6))
+                            .shadow(radius: 1)
                     }
                 }
             )
             .foregroundColor(isSelected ? .white : .primary)
-            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+            .animation(.spring(response: 0.2, dampingFraction: 0.7), value: isSelected)
     }
 }
