@@ -13,16 +13,15 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
 
     var isSelected: Bool
-    var backgroundColor: Color
+//    var backgroundColor: Color
     var namespace: Namespace.ID
     var itemId: ItemId
 
     let pickerId: UUID
 
-    public init(pickerId: UUID, isSelected: Bool = false, backgroundColor: Color = Color.orange, namespace: Namespace.ID, itemId: ItemId) {
+    public init(pickerId: UUID, isSelected: Bool = false, namespace: Namespace.ID, itemId: ItemId) {
         self.pickerId = pickerId
         self.isSelected = isSelected
-        self.backgroundColor = backgroundColor
         self.namespace = namespace
         self.itemId = itemId
     }
@@ -31,6 +30,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
         configuration.label
             .fontWeight(.semibold)
             .font(.headline)
+            .foregroundStyle(isSelected ? Color(.systemBackground) : Color.primary)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .frame(minWidth: 40)
@@ -47,7 +47,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                     }
                 }
             )
-            .foregroundColor(isSelected ? Color(.systemBackground) : .primary)
+
             .animation(.spring(response: 0.2, dampingFraction: 0.7), value: isSelected)
     }
 }

@@ -13,7 +13,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
     private let pickerId: UUID
     private let verticalPadding: CGFloat
 
-    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear,
+    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = Color(.systemBackground),
                 verticalPadding: CGFloat = 0,
                 @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
         self.items = items
@@ -73,7 +73,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         .buttonStyle(HorizontalPickerButtonStyle(
             pickerId: pickerId,
             isSelected: selectedItem == itemToSelectedValue(item),
-            backgroundColor: backgroundColor,
             namespace: animation,
             itemId: itemToSelectedValue(item)
         ))
@@ -98,5 +97,6 @@ struct WeekdaySelectionView: View {
 struct HorizontalPickerPreview: PreviewProvider {
     static var previews: some View {
         WeekdaySelectionView()
+            .background(.blue)
     }
 }
