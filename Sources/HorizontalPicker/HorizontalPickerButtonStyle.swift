@@ -39,7 +39,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                 ZStack {
                     if isSelected {
                         Capsule()
-                            .fill(Color(.black))
+                            .fill(.primary)
                             .matchedGeometryEffect(id: pickerId, in: namespace)
                     } else {
                         Capsule()
