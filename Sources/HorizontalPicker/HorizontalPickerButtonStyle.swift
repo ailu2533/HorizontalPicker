@@ -43,7 +43,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                             .matchedGeometryEffect(id: pickerId, in: namespace)
                     } else {
                         Capsule()
-                            .fill(backgroundColor)
+                            .fill(Color(.systemBackground))
                     }
                 }
             )
