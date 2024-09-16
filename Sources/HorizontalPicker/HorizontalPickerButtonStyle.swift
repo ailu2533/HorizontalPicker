@@ -47,7 +47,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                     }
                 }
             )
-            .foregroundColor(isSelected ? .white : .primary)
+            .foregroundColor(isSelected ? Color(.systemBackground) : .primary)
             .animation(.spring(response: 0.2, dampingFraction: 0.7), value: isSelected)
     }
 }
