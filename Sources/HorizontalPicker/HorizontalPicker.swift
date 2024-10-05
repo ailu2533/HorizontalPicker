@@ -57,7 +57,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         }
         .padding(.vertical, 8)
         .onChange(of: selectedItem) { _, newValue in
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+            withAnimation(.smooth) {
                 proxy.scrollTo(newValue, anchor: .center)
             }
         }

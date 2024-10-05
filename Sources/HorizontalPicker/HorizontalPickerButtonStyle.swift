@@ -30,7 +30,7 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
         configuration.label
             .fontWeight(.semibold)
             .font(.headline)
-            .foregroundStyle(isSelected ? Color(.systemBackground) : Color.primary)
+            .foregroundStyle(isSelected ? Color(.systemGray5) : Color.primary)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .frame(minWidth: 40)
@@ -47,7 +47,6 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
                     }
                 }
             )
-
-            .animation(.spring(response: 0.2, dampingFraction: 0.7), value: isSelected)
+            .animation(.smooth, value: isSelected)
     }
 }
