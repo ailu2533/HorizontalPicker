@@ -8,23 +8,23 @@
 import Foundation
 import SwiftUI
 
+extension EnvironmentValues {
+    @Entry var horizontalPickerForegroundColor: Color = Color(.systemGray5)
+    @Entry var selectedHorizontalPickerForegroundColor: Color = Color(.systemGray5)
+}
+
 @available(iOS 17.0, *)
-public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
+public struct HorizontalPickerButtonStyle<ItemID: Hashable>: ButtonStyle {
+    // MARK: Lifecycle
 
-    var isSelected: Bool
-//    var backgroundColor: Color
-    var namespace: Namespace.ID
-    var itemId: ItemId
-
-    let pickerId: UUID
-
-    public init(pickerId: UUID, isSelected: Bool = false, namespace: Namespace.ID, itemId: ItemId) {
-        self.pickerId = pickerId
+    public init(pickerID: UUID, isSelected: Bool = false, namespace: Namespace.ID, itemID: ItemID) {
+        self.pickerID = pickerID
         self.isSelected = isSelected
         self.namespace = namespace
-        self.itemId = itemId
+        self.itemID = itemID
     }
+
+    // MARK: Public
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -34,19 +34,30 @@ public struct HorizontalPickerButtonStyle<ItemId: Hashable>: ButtonStyle {
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .frame(minWidth: 40)
-
-            .background(
-                ZStack {
-                    if isSelected {
-                        Capsule()
-                            .fill(.primary)
-                            .matchedGeometryEffect(id: pickerId, in: namespace)
-                    } else {
-                        Capsule()
-                            .fill(Color(.systemBackground))
-                    }
-                }
-            )
+            .background(backgroundView)
             .animation(.smooth, value: isSelected)
+    }
+
+    // MARK: Internal
+
+    @Environment(\.isEnabled) var isEnabled
+
+    var isSelected: Bool
+//    var backgroundColor: Color
+    var namespace: Namespace.ID
+    var itemID: ItemID
+
+    let pickerID: UUID
+
+    @ViewBuilder
+    var backgroundView: some View {
+        if isSelected {
+            Capsule()
+                .fill(.primary)
+                .matchedGeometryEffect(id: pickerID, in: namespace)
+        } else {
+            Capsule()
+                .fill(Color(.clear))
+        }
     }
 }

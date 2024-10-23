@@ -4,38 +4,44 @@
 import SwiftUI
 
 public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, SelectedValue: Hashable>: View {
-    private let items: [ItemType]
-    @Binding private var selectedItem: SelectedValue
-    private let itemToSelectedValue: (ItemType) -> SelectedValue
-    private let backgroundColor: Color
-    private let itemViewBuilder: (ItemType) -> Content
-    @Namespace private var animation
-    private let pickerId: UUID
-    private let verticalPadding: CGFloat
+    // MARK: Lifecycle
 
-    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = Color(.systemBackground),
-                verticalPadding: CGFloat = 0,
-                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content) where SelectedValue == ItemType {
+    public init(
+        pickerID: UUID,
+        items: [ItemType],
+        selectedItem: Binding<SelectedValue>,
+        backgroundColor: Color = Color(.systemBackground),
+        verticalPadding: CGFloat = 0,
+        @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content
+    ) where SelectedValue == ItemType {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         itemToSelectedValue = { $0 }
-        self.pickerId = pickerId
+        self.pickerID = pickerID
         self.verticalPadding = verticalPadding
     }
 
-    public init(pickerId: UUID, items: [ItemType], selectedItem: Binding<SelectedValue>, backgroundColor: Color = .clear,
-                verticalPadding: CGFloat = 0,
-                @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content, itemToSelectedValue: @escaping (ItemType) -> SelectedValue) {
+    public init(
+        pickerID: UUID,
+        items: [ItemType],
+        selectedItem: Binding<SelectedValue>,
+        backgroundColor: Color = .clear,
+        verticalPadding: CGFloat = 0,
+        @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content,
+        itemToSelectedValue: @escaping (ItemType) -> SelectedValue
+    ) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.itemToSelectedValue = itemToSelectedValue
-        self.pickerId = pickerId
+        self.pickerID = pickerID
         self.verticalPadding = verticalPadding
     }
+
+    // MARK: Public
 
     public var body: some View {
         ScrollViewReader { proxy in
@@ -47,6 +53,17 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
         }
         // .sensoryFeedback(.impact(weight: .light, intensity: 0.5), trigger: selectedItem)
     }
+
+    // MARK: Private
+
+    private let items: [ItemType]
+    @Binding private var selectedItem: SelectedValue
+    private let itemToSelectedValue: (ItemType) -> SelectedValue
+    private let backgroundColor: Color
+    private let itemViewBuilder: (ItemType) -> Content
+    @Namespace private var animation
+    private let pickerID: UUID
+    private let verticalPadding: CGFloat
 
     private func itemsStackView(proxy: ScrollViewProxy) -> some View {
         HStack {
@@ -71,26 +88,30 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
                 .contentShape(Rectangle())
         }
         .buttonStyle(HorizontalPickerButtonStyle(
-            pickerId: pickerId,
+            pickerID: pickerID,
             isSelected: selectedItem == itemToSelectedValue(item),
             namespace: animation,
-            itemId: itemToSelectedValue(item)
+            itemID: itemToSelectedValue(item)
         ))
     }
 }
 
 struct WeekdaySelectionView: View {
+    // MARK: Internal
+
     static let weekdays = [
         "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日",
     ]
 
-    @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
-
     var body: some View {
-        HorizontalSelectionPicker(pickerId: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
+        HorizontalSelectionPicker(pickerID: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
             Text(weekday)
         }
     }
+
+    // MARK: Private
+
+    @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 }
 
 // Preview

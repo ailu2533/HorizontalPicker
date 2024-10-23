@@ -8,22 +8,19 @@
 import Collections
 import SwiftUI
 
-
 public struct IconPickerViewNew: View {
-    @Environment(\.dismiss) private var dismiss
-    @Binding var selectedIcon: String
-    @State private var selectedIconSetName: String = ""
-
-    let iconSets: OrderedDictionary<String, [String]>
+    // MARK: Lifecycle
 
     public init(selectedIcon: Binding<String>, iconSets: OrderedDictionary<String, [String]>) {
         self.iconSets = iconSets
         _selectedIcon = selectedIcon
     }
 
+    // MARK: Public
+
     public var body: some View {
         VStack {
-            HorizontalSelectionPicker(pickerId: UUID(), items: iconSets.keys.elements, selectedItem: $selectedIconSetName) {
+            HorizontalSelectionPicker(pickerID: UUID(), items: iconSets.keys.elements, selectedItem: $selectedIconSetName) {
                 Text($0)
             } itemToSelectedValue: {
                 $0
@@ -47,4 +44,14 @@ public struct IconPickerViewNew: View {
             }
         }
     }
+
+    // MARK: Internal
+
+    @Binding var selectedIcon: String
+    let iconSets: OrderedDictionary<String, [String]>
+
+    // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var selectedIconSetName: String = ""
 }
