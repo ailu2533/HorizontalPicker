@@ -3,47 +3,27 @@
 
 import SwiftUI
 
-public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, SelectedValue: Hashable>: View {
+public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Content: View>: View {
     // MARK: Lifecycle
 
     public init(
-        pickerID: UUID,
         items: [ItemType],
-        selectedItem: Binding<SelectedValue>,
-        backgroundColor: Color = Color(.systemBackground),
+        selectedItem: Binding<ItemType>,
+        backgroundColor: Color = Color(.systemGray5),
         verticalPadding: CGFloat = 0,
         @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content
-    ) where SelectedValue == ItemType {
-        self.items = items
-        _selectedItem = selectedItem
-        self.backgroundColor = backgroundColor
-        self.itemViewBuilder = itemViewBuilder
-        itemToSelectedValue = { $0 }
-        self.pickerID = pickerID
-        self.verticalPadding = verticalPadding
-    }
-
-    public init(
-        pickerID: UUID,
-        items: [ItemType],
-        selectedItem: Binding<SelectedValue>,
-        backgroundColor: Color = .clear,
-        verticalPadding: CGFloat = 0,
-        @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content,
-        itemToSelectedValue: @escaping (ItemType) -> SelectedValue
     ) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.itemToSelectedValue = itemToSelectedValue
-        self.pickerID = pickerID
         self.verticalPadding = verticalPadding
     }
 
     // MARK: Public
 
     public var body: some View {
+        let _ = Self._printChanges()
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 itemsStackView(proxy: proxy)
@@ -51,61 +31,65 @@ public struct HorizontalSelectionPicker<ItemType: Hashable, Content: View, Selec
             .scrollIndicators(.hidden)
             .contentMargins(.horizontal, 16)
         }
-        // .sensoryFeedback(.impact(weight: .light, intensity: 0.5), trigger: selectedItem)
     }
 
     // MARK: Private
 
     private let items: [ItemType]
-    @Binding private var selectedItem: SelectedValue
-    private let itemToSelectedValue: (ItemType) -> SelectedValue
+    @Binding private var selectedItem: ItemType
     private let backgroundColor: Color
     private let itemViewBuilder: (ItemType) -> Content
-    @Namespace private var animation
-    private let pickerID: UUID
     private let verticalPadding: CGFloat
 
     private func itemsStackView(proxy: ScrollViewProxy) -> some View {
         HStack {
-            ForEach(items, id: \.self) { item in
-                itemButton(for: item, proxy: proxy)
-                    .id(itemToSelectedValue(item))
+            ForEach(items) { item in
+                itemButton(for: item)
+                    .id(item)
             }
         }
         .padding(.vertical, 8)
         .onChange(of: selectedItem) { _, newValue in
-            withAnimation(.smooth) {
+            withAnimation(.spring) {
                 proxy.scrollTo(newValue, anchor: .center)
             }
         }
     }
 
-    private func itemButton(for item: ItemType, proxy: ScrollViewProxy) -> some View {
+    private func itemButton(for item: ItemType) -> some View {
         Button(action: {
-            selectedItem = itemToSelectedValue(item)
+            selectedItem = item
         }) {
             itemViewBuilder(item)
                 .contentShape(Rectangle())
         }
-        .buttonStyle(HorizontalPickerButtonStyle(
-            pickerID: pickerID,
-            isSelected: selectedItem == itemToSelectedValue(item),
-            namespace: animation,
-            itemID: itemToSelectedValue(item)
-        ))
+        .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == item, backgroundColor: backgroundColor))
     }
+}
+
+struct Weekday: Identifiable, Hashable {
+    // MARK: Lifecycle
+
+    init(_ text: String) {
+        self.text = text
+    }
+
+    // MARK: Internal
+
+    let text: String
+    let id = UUID()
 }
 
 struct WeekdaySelectionView: View {
     // MARK: Internal
 
     static let weekdays = [
-        "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日",
+        Weekday("星期一"), Weekday("星期二"), Weekday("星期三"), Weekday("星期四"), Weekday("星期五"), Weekday("星期六"), Weekday("星期日"),
     ]
 
     var body: some View {
-        HorizontalSelectionPicker(pickerID: UUID(), items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
-            Text(weekday)
+        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
+            Text(weekday.text)
         }
     }
 

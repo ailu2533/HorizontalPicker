@@ -14,14 +14,12 @@ extension EnvironmentValues {
 }
 
 @available(iOS 17.0, *)
-public struct HorizontalPickerButtonStyle<ItemID: Hashable>: ButtonStyle {
+public struct HorizontalPickerButtonStyle: ButtonStyle {
     // MARK: Lifecycle
 
-    public init(pickerID: UUID, isSelected: Bool = false, namespace: Namespace.ID, itemID: ItemID) {
-        self.pickerID = pickerID
+    public init(isSelected: Bool = false, backgroundColor: Color) {
         self.isSelected = isSelected
-        self.namespace = namespace
-        self.itemID = itemID
+        self.backgroundColor = backgroundColor
     }
 
     // MARK: Public
@@ -29,35 +27,20 @@ public struct HorizontalPickerButtonStyle<ItemID: Hashable>: ButtonStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .fontWeight(.semibold)
-            .font(.headline)
-            .foregroundStyle(isSelected ? Color(.systemGray5) : Color.primary)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .frame(minWidth: 40)
             .background(backgroundView)
-            .animation(.smooth, value: isSelected)
     }
 
     // MARK: Internal
 
-    @Environment(\.isEnabled) var isEnabled
-
     var isSelected: Bool
-//    var backgroundColor: Color
-    var namespace: Namespace.ID
-    var itemID: ItemID
-
-    let pickerID: UUID
+    var backgroundColor: Color
 
     @ViewBuilder
     var backgroundView: some View {
-        if isSelected {
-            Capsule()
-                .fill(.primary)
-                .matchedGeometryEffect(id: pickerID, in: namespace)
-        } else {
-            Capsule()
-                .fill(Color(.clear))
-        }
+        RoundedRectangle(cornerRadius: 12).fill(backgroundColor)
+            .opacity(isSelected ? 1 : 0)
     }
 }
