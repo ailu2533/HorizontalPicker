@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 class ImageLoader: ObservableObject {
+    static let sharedCache = NSCache<NSString, UIImage>() // 全局静态缓存
+
     @Published var image: UIImage?
     @Published var isLoading: Bool = false // 添加一个标记图像是否正在加载的状态
-    static let sharedCache = NSCache<NSString, UIImage>() // 全局静态缓存
 
     func loadAndResizeImage(named imageName: String, targetSize: CGSize) {
         isLoading = true // 标记开始加载

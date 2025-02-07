@@ -8,14 +8,14 @@
 import SwiftUI
 
 public struct ResizedImage: View {
-    @StateObject var imageLoader = ImageLoader()
-    let imageName: String
-    let targetSize: CGSize
+    // MARK: Lifecycle
 
     public init(imageName: String, targetSize: CGSize) {
         self.imageName = imageName
         self.targetSize = targetSize
     }
+
+    // MARK: Public
 
     public var body: some View {
         Group {
@@ -37,4 +37,10 @@ public struct ResizedImage: View {
             imageLoader.loadAndResizeImage(named: imageName, targetSize: targetSize)
         }
     }
+
+    // MARK: Internal
+
+    @StateObject var imageLoader = ImageLoader()
+    let imageName: String
+    let targetSize: CGSize
 }

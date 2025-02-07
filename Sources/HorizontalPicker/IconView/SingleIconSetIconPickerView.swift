@@ -9,16 +9,15 @@ import Foundation
 import SwiftUI
 
 public struct SingleIconSetIconPickerView: View {
-    @Binding private var selectedIcon: String
-    private let icons: [String]
-    private let columns = [GridItem(.adaptive(minimum: 70))]
-    var tapCallback: (String) -> Void
+    // MARK: Lifecycle
 
     public init(selectedImg: Binding<String>, icons: [String], tapCallback: @escaping (String) -> Void = { _ in }) {
         _selectedIcon = selectedImg
         self.icons = icons
         self.tapCallback = tapCallback
     }
+
+    // MARK: Public
 
     public var body: some View {
         VStack {
@@ -43,4 +42,14 @@ public struct SingleIconSetIconPickerView: View {
             }
         }
     }
+
+    // MARK: Internal
+
+    var tapCallback: (String) -> Void
+
+    // MARK: Private
+
+    @Binding private var selectedIcon: String
+    private let icons: [String]
+    private let columns = [GridItem(.adaptive(minimum: 70))]
 }

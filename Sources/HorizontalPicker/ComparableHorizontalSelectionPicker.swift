@@ -9,23 +9,23 @@ import Foundation
 import SwiftUI
 
 public struct ComparableHorizontalSelectionPicker<ItemType: Hashable, Content: View>: View {
-    var items: [ItemType]
-    @Binding private var selectedItem: ItemType
+    // MARK: Lifecycle
 
-    var backgroundColor: Color
-
-    @ViewBuilder var itemViewBuilder: (ItemType) -> Content
-
-    private var isEmbeddedInScrollView = true
-
-    public init(items: [ItemType], selectedItem: Binding<ItemType>, backgroundColor: Color = Color(.clear), isEmbeddedInScrollView: Bool = true,
-                itemViewBuilder: @escaping (ItemType) -> Content) {
+    public init(
+        items: [ItemType],
+        selectedItem: Binding<ItemType>,
+        backgroundColor: Color = Color(.clear),
+        isEmbeddedInScrollView: Bool = true,
+        itemViewBuilder: @escaping (ItemType) -> Content
+    ) {
         self.items = items
         _selectedItem = selectedItem
         self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
         self.isEmbeddedInScrollView = isEmbeddedInScrollView
     }
+
+    // MARK: Public
 
     public var body: some View {
         ScrollView(.horizontal) {
@@ -35,6 +35,19 @@ public struct ComparableHorizontalSelectionPicker<ItemType: Hashable, Content: V
         .scrollIndicators(.hidden)
         .contentMargins(.vertical, 2)
     }
+
+    // MARK: Internal
+
+    var items: [ItemType]
+    var backgroundColor: Color
+
+    @ViewBuilder var itemViewBuilder: (ItemType) -> Content
+
+    // MARK: Private
+
+    @Binding private var selectedItem: ItemType
+
+    private var isEmbeddedInScrollView = true
 
     private func itemsStackView() -> some View {
         HStack(spacing: 0) {

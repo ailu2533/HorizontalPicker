@@ -13,6 +13,8 @@ extension EnvironmentValues {
     @Entry var selectedHorizontalPickerForegroundColor: Color = Color(.systemGray5)
 }
 
+// MARK: - HorizontalPickerButtonStyle
+
 @available(iOS 17.0, *)
 public struct HorizontalPickerButtonStyle: ButtonStyle {
     // MARK: Lifecycle

@@ -3,6 +3,8 @@
 
 import SwiftUI
 
+// MARK: - HorizontalSelectionPicker
+
 public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Content: View>: View {
     // MARK: Lifecycle
 
@@ -23,7 +25,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
     // MARK: Public
 
     public var body: some View {
-        let _ = Self._printChanges()
+//        let _ = Self._printChanges()
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 itemsStackView(proxy: proxy)
@@ -67,6 +69,8 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
     }
 }
 
+// MARK: - Weekday
+
 struct Weekday: Identifiable, Hashable {
     // MARK: Lifecycle
 
@@ -79,6 +83,8 @@ struct Weekday: Identifiable, Hashable {
     let text: String
     let id = UUID()
 }
+
+// MARK: - WeekdaySelectionView
 
 struct WeekdaySelectionView: View {
     // MARK: Internal
@@ -97,6 +103,8 @@ struct WeekdaySelectionView: View {
 
     @State private var selectedWeekday = WeekdaySelectionView.weekdays.first!
 }
+
+// MARK: - HorizontalPickerPreview
 
 // Preview
 struct HorizontalPickerPreview: PreviewProvider {
