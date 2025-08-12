@@ -17,15 +17,12 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
     ) {
         self.items = items
         _selectedItem = selectedItem
-        self.backgroundColor = backgroundColor
         self.itemViewBuilder = itemViewBuilder
-        self.verticalPadding = verticalPadding
     }
 
     // MARK: Public
 
     public var body: some View {
-//        let _ = Self._printChanges()
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 itemsStackView(proxy: proxy)
@@ -35,13 +32,14 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
         }
     }
 
+    // MARK: Internal
+
+    @ViewBuilder var itemViewBuilder: (ItemType) -> Content
+
     // MARK: Private
 
     private let items: [ItemType]
     @Binding private var selectedItem: ItemType
-    private let backgroundColor: Color
-    private let itemViewBuilder: (ItemType) -> Content
-    private let verticalPadding: CGFloat
 
     private func itemsStackView(proxy: ScrollViewProxy) -> some View {
         HStack {
@@ -50,7 +48,6 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
                     .id(item)
             }
         }
-        .padding(.vertical, 8)
         .onChange(of: selectedItem) { _, newValue in
             withAnimation(.spring) {
                 proxy.scrollTo(newValue, anchor: .center)
@@ -59,13 +56,14 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
     }
 
     private func itemButton(for item: ItemType) -> some View {
-        Button(action: {
+        Button {
             selectedItem = item
-        }) {
+        } label: {
             itemViewBuilder(item)
-                .contentShape(Rectangle())
+               
+                .foregroundStyle(selectedItem == item ? .primary : .secondary)
         }
-        .buttonStyle(HorizontalPickerButtonStyle(isSelected: selectedItem == item, backgroundColor: backgroundColor))
+        .buttonStyle(HorizontalPickerButtonStyle())
     }
 }
 

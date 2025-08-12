@@ -17,32 +17,21 @@ extension EnvironmentValues {
 
 @available(iOS 17.0, *)
 public struct HorizontalPickerButtonStyle: ButtonStyle {
-    // MARK: Lifecycle
-
-    public init(isSelected: Bool = false, backgroundColor: Color) {
-        self.isSelected = isSelected
-        self.backgroundColor = backgroundColor
-    }
-
-    // MARK: Public
-
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .fontWeight(.semibold)
+            .modifier(PickerButtonModifier())
+    }
+}
+
+// MARK: - PickerButtonModifier
+
+private struct PickerButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
-            .frame(minWidth: 40)
-            .background(backgroundView)
-    }
-
-    // MARK: Internal
-
-    var isSelected: Bool
-    var backgroundColor: Color
-
-    @ViewBuilder
-    var backgroundView: some View {
-        RoundedRectangle(cornerRadius: 12).fill(backgroundColor)
-            .opacity(isSelected ? 1 : 0)
+            .frame(minWidth: 44)
+            .contentShape(Rectangle())
+            .fontWeight(.semibold)
     }
 }
