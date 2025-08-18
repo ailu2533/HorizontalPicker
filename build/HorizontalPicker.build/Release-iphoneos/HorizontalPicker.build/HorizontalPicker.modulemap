@@ -1,0 +1,4 @@
+module HorizontalPicker {
+header "HorizontalPicker-Swift.h"
+export *
+}

@@ -60,7 +60,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
             selectedItem = item
         } label: {
             itemViewBuilder(item)
-               
+
                 .foregroundStyle(selectedItem == item ? .primary : .secondary)
         }
         .buttonStyle(HorizontalPickerButtonStyle())
@@ -88,7 +88,7 @@ struct WeekdaySelectionView: View {
     // MARK: Internal
 
     static let weekdays = [
-        Weekday("星期一"), Weekday("星期二"), Weekday("星期三"), Weekday("星期四"), Weekday("星期五"), Weekday("星期六"), Weekday("星期日"),
+        Weekday("星期一"), Weekday("星期二"), Weekday("星期三"), Weekday("星期四"), Weekday("星期五"), Weekday("星期六"), Weekday("星期日")
     ]
 
     var body: some View {

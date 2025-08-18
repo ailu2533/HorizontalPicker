@@ -10,10 +10,10 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "HorizontalPicker",
-            targets: ["HorizontalPicker"]),
+            targets: ["HorizontalPicker"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-collections.git", .upToNextMajor(from: "1.1.0")),
+        .package(url: "https://github.com/apple/swift-collections.git", .upToNextMajor(from: "1.1.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -21,13 +21,13 @@ let package = Package(
         .target(
             name: "HorizontalPicker",
             dependencies: [
-                .product(name: "Collections",package: "swift-collections"),
+                .product(name: "Collections", package: "swift-collections")
             ]
-        
+
         ),
-        
+
         .testTarget(
             name: "HorizontalPickerTests",
-            dependencies: ["HorizontalPicker"]),
+            dependencies: ["HorizontalPicker"])
     ]
 )

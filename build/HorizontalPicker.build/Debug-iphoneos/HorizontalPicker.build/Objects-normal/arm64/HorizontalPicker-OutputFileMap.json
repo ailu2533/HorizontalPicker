@@ -1,0 +1,118 @@
+{
+  "" : {
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker-master.dia",
+    "emit-module-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker-master-emit-module.dia",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker-master.swiftdeps"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/ComparableHorizontalSelectionPicker.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ComparableHorizontalSelectionPicker~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/FeedbackViewModifier.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/FeedbackViewModifier~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/HorizontalPicker.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPicker~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/HorizontalPickerButtonStyle.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/HorizontalPickerButtonStyle2.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/HorizontalPickerButtonStyle2~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/IconPickerView.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerView~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/IconPickerViewNew.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconPickerViewNew~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/IconView.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/IconView~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/ImageLoader.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ImageLoader~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/ResizedImage.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/ResizedImage~partial.swiftmodule"
+  },
+  "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/Sources/HorizontalPicker/IconView/SingleIconSetIconPickerView.swift" : {
+    "const-values" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.swiftconstvalues",
+    "dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.d",
+    "diagnostics" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.dia",
+    "index-unit-output-path" : "/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.o",
+    "llvm-bc" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.bc",
+    "object" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.o",
+    "swift-dependencies" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView.swiftdeps",
+    "swiftmodule" : "/Users/luai/Documents/AppCodeProjects/HorizontalPicker/build/HorizontalPicker.build/Debug-iphoneos/HorizontalPicker.build/Objects-normal/arm64/SingleIconSetIconPickerView~partial.swiftmodule"
+  }
+}

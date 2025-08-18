@@ -9,7 +9,7 @@ import Collections
 import Foundation
 import SwiftUI
 
-//public struct IconPickerView: View {
+// public struct IconPickerView: View {
 //    // MARK: Lifecycle
 //
 //    public init(selectedIcon: Binding<String>, iconSets: OrderedDictionary<String, [String]>) {
@@ -45,4 +45,4 @@ import SwiftUI
 //
 //    @Environment(\.dismiss) private var dismiss
 //    @State private var selectedIconSetName: String = ""
-//}
+// }
