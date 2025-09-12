@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 
-struct FeedbackViewModifier<Trigger: Equatable>: ViewModifier {
-    var feedback: SensoryFeedback?
-    var trigger: Trigger
+// PERIPHERY: Unused struct 'FeedbackViewModifier'
+// struct FeedbackViewModifier<Trigger: Equatable>: ViewModifier {
+    // var feedback: SensoryFeedback?
+    // var trigger: Trigger
 
-    func body(content: Content) -> some View {
-        if let feedback {
-            content.sensoryFeedback(feedback, trigger: trigger)
-        } else {
-            content
-        }
-    }
-}
+    // func body(content: Content) -> some View {
+        // if let feedback {
+            // content.sensoryFeedback(feedback, trigger: trigger)
+        // } else {
+            // content
+        // }
+    // }
+// }

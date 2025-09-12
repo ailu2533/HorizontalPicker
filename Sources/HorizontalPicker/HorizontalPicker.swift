@@ -13,7 +13,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
         selectedItem: Binding<ItemType>,
         backgroundColor: Color = Color(.systemGray5),
         verticalPadding: CGFloat = 0,
-        @ViewBuilder itemViewBuilder: @escaping (ItemType) -> Content
+        @ViewBuilder itemViewBuilder: @escaping (ItemType, Bool) -> Content
     ) {
         self.items = items
         _selectedItem = selectedItem
@@ -34,7 +34,8 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
 
     // MARK: Internal
 
-    @ViewBuilder var itemViewBuilder: (ItemType) -> Content
+    // bool item是否被选择
+    @ViewBuilder var itemViewBuilder: (ItemType, Bool) -> Content
 
     // MARK: Private
 
@@ -59,8 +60,7 @@ public struct HorizontalSelectionPicker<ItemType: Hashable & Identifiable, Conte
         Button {
             selectedItem = item
         } label: {
-            itemViewBuilder(item)
-
+            itemViewBuilder(item, selectedItem == item)
                 .foregroundStyle(selectedItem == item ? .primary : .secondary)
         }
         .buttonStyle(HorizontalPickerButtonStyle())
@@ -88,11 +88,11 @@ struct WeekdaySelectionView: View {
     // MARK: Internal
 
     static let weekdays = [
-        Weekday("星期一"), Weekday("星期二"), Weekday("星期三"), Weekday("星期四"), Weekday("星期五"), Weekday("星期六"), Weekday("星期日")
+        Weekday("星期一"), Weekday("星期二"), Weekday("星期三"), Weekday("星期四"), Weekday("星期五"), Weekday("星期六"), Weekday("星期日"),
     ]
 
     var body: some View {
-        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday in
+        HorizontalSelectionPicker(items: WeekdaySelectionView.weekdays, selectedItem: $selectedWeekday, backgroundColor: .blue.opacity(0.4)) { weekday, _ in
             Text(weekday.text)
         }
     }
